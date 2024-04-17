@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style-2.css">
+</head>
+<body>
+    <div style="display: flex;justify-content: center;align-items: center;height: 100vh;">
+        <div id="main">
+            <form id="registrationForm">
+                <label for="uname" class="sub-head"><b></b>Username:</label><br>
+                <input type="text" class="text-box" id="uname" name="uname" placeholder="Enter username"><br><br>
+                <label for="fname" class="sub-head"><b></b>First Name :</label><br>
+                <input type="text" class="text-box" id="fname" name="fname" placeholder="Enter first name"><br><br>
+                <label for="lname" class="sub-head"><b></b>Last Name :</label><br>
+                <input type="text" class="text-box" id="lname" name="lname" placeholder="Enter last name"><br><br>
+                <label for="email" class="sub-head">Enter mail id:</label><br>
+                <input type="email" class="text-box" id="email" name="email" placeholder="example@gmail.com"><br><br>
+                <label for="password" class="sub-head">Enter password :</label><br>
+                <input type="password" name="password" class="text-box" id="password" placeholder="Enter a 8 digit password"><br><br>
+                <button type="submit" id="confirm">Confirm</button>
+            </form>  
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var uname = document.getElementById('uname').value.trim();
+            var fname = document.getElementById('fname').value.trim();
+            var lname = document.getElementById('lname').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var password = document.getElementById('password').value.trim();
+
+            if (uname === '' || fname === '' || lname === '' || email === '' || password === '') {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return;
+            }
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>
